@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 const pageTitle = "About me";
 
 const identity = {
@@ -7,9 +9,11 @@ const identity = {
     country: "the United States",
     occupation: "Software Engineer",
     hobbies: ["photography", "camping", "F1"]
-}
+};
 
-const skills = ["React", "Angular", "Typescript", "C#", "Python", "Ruby"]
+const skills = ["React", "Angular", "Typescript", "C#", "Python", "Ruby"];
+
+const skillColor = "navy";
 ---
 
 <html lang="en">
@@ -19,6 +23,16 @@ const skills = ["React", "Angular", "Typescript", "C#", "Python", "Ruby"]
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
+        <style define:vars={{skillColor}}>
+            h1 {
+              color: purple;
+              font-size: 4rem;
+            }
+            .skill {
+                color: var(--skillColor);
+                font-weight: bold;
+            }
+        </style>
 	</head>
 	<body>
         <a href="/">Home</a>
@@ -41,7 +55,7 @@ const skills = ["React", "Angular", "Typescript", "C#", "Python", "Ruby"]
 
         <p>My skills are:</p>
         <ul>
-            {skills.map((skill) => <li>{skill}</li>)}
+            {skills.map((skill) => <li class="skill">{skill}</li>)}
         </ul>
 
 	</body>
